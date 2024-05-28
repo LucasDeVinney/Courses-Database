@@ -16,6 +16,8 @@ export const UserProvider = (props) => {
                 const user = await response.json();
                 user.user.password = credentials.password;
                 setAuthUser(user);
+                Cookies.set("authenticatedUser", JSON.stringify(user), {expires: 1});
+                return user;
             } else if (response.status === 401) {
                 return null;
             } else {
@@ -42,6 +44,6 @@ export const UserProvider = (props) => {
             {props.children}
         </UserContext.Provider>
     );
-}
+};
 
 export default UserContext;

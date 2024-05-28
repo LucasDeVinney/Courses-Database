@@ -1,12 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { api } from './utils/apiHelper';
-import { useState, useEffect } from 'react';
+import Header from './components/Header';
 
 function App() {
   return (
     <div>
-
+      <Header />
+      <Routes>
+        
+      </Routes>
     </div>
   );
 }
