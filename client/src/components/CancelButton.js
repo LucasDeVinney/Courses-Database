@@ -12,4 +12,4 @@ const CancelButton = () => {
     )
 }
 
-export default CancelButton
+export default CancelButton;

@@ -37,7 +37,7 @@ const CourseDetail = () => {
             password: authUser.user.password
         };
         try {
-            const response = await api('/courses/${id}', 'DELETE', null, credentials);
+            const response = await api(`/courses/${id}`, 'DELETE', null, credentials);
             if (response.status === 204) {
                 navigate('/');
             } else if(response.status === 401) {
