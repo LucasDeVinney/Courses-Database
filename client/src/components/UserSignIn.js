@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import ErrorsDisplay from "./ErrorsDisplay";
-// import CancelButton from "./CancelButton";
+import CancelButton from "./CancelButton";
 
 const UserSignIn = () => {
     const navigate = useNavigate();
@@ -42,11 +42,19 @@ const UserSignIn = () => {
                     ref={emailAddress}
                     placeholder="email@example.com"
                 />
+                <label htmlFor="password">Password</label>
+                <input 
+                    id="password"
+                    name="password"
+                    type="password"
+                    ref={password}
+                    placeholder="8-20 characters"
+                />
                 <button className='button' type="submit">Sign In</button>
-                Cancel Button
+                <CancelButton />
             </form>
             <p>Dont have a user account? Click here to
-                <Link to="/signup"> sign up</Link>
+                <Link to="/signup"> sign up</Link>!
             </p>
         </div>
     )

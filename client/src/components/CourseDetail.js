@@ -12,7 +12,7 @@ const CourseDetail = () => {
     const [errors, setErrors] = useState([]);
     const { authUser } = useContext(UserContext);
     const { id } = useParams();
-    const navigate = useNavigate;
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async() => {
