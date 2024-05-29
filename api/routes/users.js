@@ -42,7 +42,7 @@ router.post('/users', bodyParser, async function(req, res, next) {
         } catch (error) {
             // Catches if email is already in use
             if (error.name === 'SequelizeUniqueConstraintError') {
-                res.status(400).json({ message: 'That email address is already in use.' });
+                res.status(400).json({ errors: 'That email address is already in use.' });
             } else {
                 throw error;
             }

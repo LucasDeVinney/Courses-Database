@@ -36,7 +36,7 @@ const UserSignUp = () => {
                 navigate('/');
             } else if (response.status === 400) {
                 const data = await response.json();
-                setErrors(data.errors);
+                setErrors([data.errors]);
             }
         } catch (error) {
             console.log('Error: ', error.message);
@@ -45,7 +45,7 @@ const UserSignUp = () => {
 
     return (
         <div className="form--centered">
-            <ErrorsDisplay errors={errors.map(error => error.msg || error)} />
+            <ErrorsDisplay errors={errors} />
             <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="firstName">First Name</label>

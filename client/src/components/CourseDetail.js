@@ -35,7 +35,7 @@ const CourseDetail = () => {
     // Handler for deleting a course
     const handleDeleteCourse = async () => {
         const credentials = {
-            username: authUser.user.emailAddress,
+            emailAddress: authUser.user.emailAddress,
             password: authUser.user.password
         };
         try {
