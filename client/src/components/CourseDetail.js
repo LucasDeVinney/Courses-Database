@@ -5,7 +5,7 @@ import { api } from "../utils/apiHelper";
 
 import UserContext from "../context/UserContext";
 
-// import ErrorsDisplay from './ErrorsDisplay';
+import ErrorsDisplay from './ErrorsDisplay';
 
 const CourseDetail = () => {
     const [course, setCourse] = useState([]);
@@ -80,7 +80,7 @@ const CourseDetail = () => {
                 </div>
             )}
             <div className="wrap">
-                // Insert ErrorsDisplay
+                <ErrorsDisplay errors={errors}/>
                 <h2>Course Detail</h2>
                 <form>
                     <div className="main--flex">
