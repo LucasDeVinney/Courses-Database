@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+// Imports components
 import Header from './components/Header';
 import Courses from './components/Courses';
 import CourseDetail from './components/CourseDetail';
@@ -15,6 +16,7 @@ function App() {
   return (
     <div>
       <Header />
+      {/* non-auth routes */}
       <Routes>
         <Route path="/" element={<Courses />} />
         <Route path="/courses/:id" element={<CourseDetail />} />
@@ -22,11 +24,13 @@ function App() {
         <Route path="signup" element={<UserSignUp />} />
         <Route path="signout" element={<UserSignOut />} />
 
+        {/* Private apps that require authentication */}
         <Route element={<PrivateRoute />}>
           <Route path="courses/create" element={<CreateCourse />} />
           <Route path="courses/:id/update" element={<UpdateCourse />} />
         </Route>
 
+        {/* 404 Route */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

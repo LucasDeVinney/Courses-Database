@@ -1,10 +1,13 @@
+// Imports
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../utils/apiHelper";
 
 const Courses = () => {
+    // Hook
     const [courses, setCourses] = useState([]);
 
+    // Gets all courses
     useEffect(() => {
         const fetchData = async () => {
             try {

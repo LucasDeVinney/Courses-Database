@@ -1,3 +1,4 @@
+// Display block of validation errors
 const ErrorsDisplay = ({ errors }) => {
     let errorsDisplay = null;
 

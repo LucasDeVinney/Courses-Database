@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles/global.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// Wraps route in provider and router
 root.render(
   <React.StrictMode>
     <BrowserRouter>

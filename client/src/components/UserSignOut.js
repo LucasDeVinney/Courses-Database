@@ -1,8 +1,9 @@
+// Imports
 import { useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-
 import UserContext from "../context/UserContext";
 
+// Calls context sign out and navigates to home page
 const UserSignOut = () => {
     const { actions } = useContext(UserContext);
     useEffect(() => actions.signOut());

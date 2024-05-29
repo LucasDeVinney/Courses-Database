@@ -1,15 +1,21 @@
+// Imports
 import { createContext, useState } from 'react';
 import Cookies from 'js-cookie';
 import { api } from '../utils/apiHelper';
 
+// Initialize context
 const UserContext = createContext(null);
 
 export const UserProvider = (props) => {
+    // Create cookie
     const cookie = Cookies.get("authenticatedUser");
 
+    // Create state with cookie
     const [authUser, setAuthUser] = useState(cookie ? JSON.parse(cookie) : null);
 
+    // Sign in action
     const signIn = async (credentials) => {
+        // Gets user by credentials and sets authenticated user to the user
         try {
             const response = await api('/users', 'GET', null, credentials);
             if (response.status === 200) {
@@ -28,7 +34,9 @@ export const UserProvider = (props) => {
         }
     };
 
+    // Sign out action
     const signOut = () => {
+        // Clears auth user
         setAuthUser(null);
         Cookies.remove("authenticatedUser");
     };

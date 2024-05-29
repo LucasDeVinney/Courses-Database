@@ -1,3 +1,4 @@
+// Improts
 import { useContext, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { api } from "../utils/apiHelper";
@@ -6,14 +7,18 @@ import ErrorsDisplay from "./ErrorsDisplay";
 import CancelButton from "./CancelButton";
 
 const UserSignUp = () => {
+    // Hooks
     const navigate = useNavigate();
     const { actions } = useContext(UserContext);
     const [errors, setErrors] = useState([]);
+
+    // Data collection constants
     const firstName= useRef(null);
     const lastName= useRef(null);
     const emailAddress = useRef(null);
     const password = useRef(null);
 
+    // Submit handler
     const handleSubmit = async (event) => {
         event.preventDefault();
         const newUser = {
@@ -23,6 +28,7 @@ const UserSignUp = () => {
             password: password.current.value
         };
 
+        // Tries to create new user
         try {
             const response = await api('/users', 'POST', newUser, null);
             if (response.status === 201) {

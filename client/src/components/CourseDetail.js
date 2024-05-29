@@ -1,19 +1,20 @@
+// Imports
 import { useEffect, useState, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Markdown from 'react-markdown';
 import { api } from "../utils/apiHelper";
-
 import UserContext from "../context/UserContext";
-
 import ErrorsDisplay from './ErrorsDisplay';
 
 const CourseDetail = () => {
+    // Hooks
     const [course, setCourse] = useState([]);
     const [errors, setErrors] = useState([]);
     const { authUser } = useContext(UserContext);
     const { id } = useParams();
     const navigate = useNavigate();
 
+    // Get course details for a specified course
     useEffect(() => {
         const fetchData = async() => {
             try {
@@ -31,6 +32,7 @@ const CourseDetail = () => {
         fetchData();
     }, [id, navigate]);
 
+    // Handler for deleting a course
     const handleDeleteCourse = async () => {
         const credentials = {
             username: authUser.user.emailAddress,

@@ -1,3 +1,4 @@
+// Imports
 import { useContext, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import UserContext from "../context/UserContext";
@@ -5,12 +6,14 @@ import ErrorsDisplay from "./ErrorsDisplay";
 import CancelButton from "./CancelButton";
 
 const UserSignIn = () => {
+    // Hooks
     const navigate = useNavigate();
     const { actions } = useContext(UserContext);
     const [errors, setErrors] = useState([]);
     const emailAddress = useRef(null);
     const password = useRef(null);
 
+    // Submit handler
     const handleSubmit = async (event) => {
         event.preventDefault();
         const credentials = {

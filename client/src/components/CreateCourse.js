@@ -1,14 +1,13 @@
+// Improts
 import { useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../utils/apiHelper";
-
 import UserContext from "../context/UserContext";
-
 import ErrorsDisplay from './ErrorsDisplay';
-
 import CancelButton from "./CancelButton";
 
 const CreateCourse = () => {
+    // Hooks
     const [errors, setErrors] = useState([]);
     const { authUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -17,6 +16,7 @@ const CreateCourse = () => {
     const estimatedTime = useRef(null);
     const materialsNeeded = useRef(null);
 
+    // Submit handler
     const handleSubmit = async (event) => {
         event.preventDefault();
         const newCourse = {
@@ -31,6 +31,7 @@ const CreateCourse = () => {
             password: authUser.user.password
         };
 
+        // Tries to post course with proper authentication and data
         try {
             if (authUser) {
                 const response = await api('/courses', 'POST', newCourse, credentials);

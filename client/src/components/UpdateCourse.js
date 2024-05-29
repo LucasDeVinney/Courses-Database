@@ -1,3 +1,4 @@
+// Imports
 import { useState, useRef, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { api } from "../utils/apiHelper";
@@ -6,17 +7,20 @@ import ErrorsDisplay from "./ErrorsDisplay";
 import CancelButton from "./CancelButton";
 
 const UpdateCourse = () => {
+    // Hooks
     const [course, setCourse] = useState([]);
     const [errors, setErrors] = useState([]);
     const { authUser } = useContext(UserContext);
     const { id } = useParams();
     const navigate = useNavigate();
 
+    // Defining variables for course data
     const title = useRef(null);
     const description = useRef(null);
     const estimatedTime = useRef(null);
     const materialsNeeded = useRef(null);
 
+    // Tries getting the specified course data
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -38,6 +42,7 @@ const UpdateCourse = () => {
         fetchData();
     }, [id, navigate, authUser.user.emailAddress]);
 
+    // Submit handler
     const handleSubmit = async (event) => {
         event.preventDefault();
         const updatedCourse = {
@@ -52,6 +57,7 @@ const UpdateCourse = () => {
             password: authUser.user.password
         };
 
+        // Tries updating the course with authentication
         try {
             const response = await api(`/courses/${id}`, 'PUT', updatedCourse, credentials);
             if (response.status === 204) {
