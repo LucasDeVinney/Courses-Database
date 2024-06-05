@@ -51,7 +51,7 @@ const CreateCourse = () => {
 
     return (
         <div className="wrap">
-            <ErrorsDisplay errors={errors.map(error => error.msg)} />
+            <ErrorsDisplay errors={errors} />
             <h2>Create Course</h2>
             <form onSubmit={handleSubmit}>
                 <div className="main--flex">

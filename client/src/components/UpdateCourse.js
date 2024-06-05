@@ -78,8 +78,8 @@ const UpdateCourse = () => {
 
     return (
         <>
-            <ErrorsDisplay errors={errors.map((error) => error.msg || error)} />
             <div className="wrap">
+            <ErrorsDisplay errors={errors} />
             <h2>Update Course</h2>
             <form onSubmit={handleSubmit}>
                 <div className="main--flex">

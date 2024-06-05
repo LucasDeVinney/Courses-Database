@@ -4,9 +4,9 @@ const ErrorsDisplay = ({ errors }) => {
 
     if (errors.length) {
         errorsDisplay = (
-            <div className="validation--errors">
-                <h3>Validation Errors</h3>
-                <div>
+            <div>
+                <h3 className="validation--errors--label">Validation Errors</h3>
+                <div className="validation--errors">
                     <ul>
                         {errors.map((error, i) => <li key={i}>{error}</li>)}
                     </ul>
